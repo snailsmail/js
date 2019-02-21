@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link id="l1" rel="stylesheet" type="text/css" href="css1.css" />
+  <script>
+    function skin1() {
+      var oL = document.getElementById('l1');
+      oL.href = 'css1.css';
+    }
+
+    function skin2() {
+      var oL = document.getElementById('l1');
+      oL.href = 'css2.css';
+    }
+  </script>
+</head>
+<body>
+<!-- 变换皮肤(任何标签都可以添加id属性，包括html， link；任何标签的属性都可以进行修改) -->
+<input type="button" value="皮肤1" onclick="skin1()"/>
+<input type="button" value="皮肤2" onclick="skin2()"/>
+</body>
+</html>

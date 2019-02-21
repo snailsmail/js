@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>li排序</title>
+  <script>
+    window.onload = function () {
+
+      var oUl = document.getElementById('ul1');
+      var aLi = oUl.getElementsByTagName('li');
+      var oBtn = document.getElementById('btn');
+
+      oBtn.onclick = function () {
+        var arr = [];
+
+        for (var i = 0; i < aLi.length; i++) {
+          arr.push(aLi[i]);
+        }
+
+        arr.sort(function (li1, li2) {
+          var n1 = parseInt(li1.innerHTML);
+          var n2 = parseInt(li2.innerHTML);
+          return n1 - n2;
+        });
+
+        for (var j = 0; j < arr.length; j++) {
+          alert('把' + arr[j].innerHTML + '添加到最后');
+          oUl.appendChild(arr[j]);
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+<ul id="ul1">
+  <li>11</li>
+  <li>44</li>
+  <li>56</li>
+  <li>22</li>
+  <li>35</li>
+  <li>9</li>
+</ul>
+<input type="button" id="btn" value="排序"/>
+</body>
+</html>

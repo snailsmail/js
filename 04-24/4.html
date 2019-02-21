@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    //window.onload会在body中的所以标签执行完成后才去执行，所以一般会用
+    window.onload = function () {
+      var oBtn = document.getElementById("btn1");
+
+      oBtn.onclick = function () {
+        alert("111");
+      }
+    }
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn1"/>
+</body>
+</html>

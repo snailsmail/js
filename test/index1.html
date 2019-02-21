@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  function count() {
+    let now = 0;
+    function myFunc() {
+      now += 1;
+      return now;
+    }
+    return myFunc;
+  }
+
+  let now = 0;
+  let increment = count();
+  let r1 = increment();
+  let r2 = increment();
+  let r3 = increment();
+  console.log(r1, r2, r3)
+
+</script>
+</body>
+</html>

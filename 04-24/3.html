@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    //这样写会报错，如果将script标签以及内容放到body结束标签上面时，则不会报错
+    //这是因为浏览器在渲染页面时，先渲染head标签，这时候body、中的body标签还没有执行，
+    //在js执行时，还没有一个id为btn1的input标签，所以报错，而如果
+    //放在body结束标签上面时，这时候id为btn1的input标签已经加载过了，所以不会报错
+    var oBtn = document.getElementById("btn1");
+
+    oBtn.onclick = function () {
+      alert("111");
+    }
+  </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn1"/>
+</body>
+</html>

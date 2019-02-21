@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #div1 {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+    </style>
+</head>
+<body>
+<!-- 200*200的红色正方形鼠标移入的时候变为300*300的绿色正方形，移出还原 -->
+<div id="div1" onmouseover="var div1 = document.getElementById('div1'); div1.style.height='300px';div1.style.width='300px'; div1.style.backgroundColor='green';"
+     onmouseout="var div1 = document.getElementById('div1'); div1.style.height='200px';div1.style.width='200px'; div1.style.backgroundColor='red';">
+</div>
+</body>
+</html>

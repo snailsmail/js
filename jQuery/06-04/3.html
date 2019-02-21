@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>超酷时钟</title>
+  <style>
+    * { padding: 0; margin: 0; }
+    body { background:#003; }
+    img { border: none; }
+
+    #clock { width: 520px; height: 520px; margin: 50px auto 0; position: relative; }
+    #clock h2 { text-align: center; padding: 80px 0 30px; }
+    #year { text-align: center; padding-top: 30px; }
+    #time { text-align: center; padding: 30px 0; }
+    #clock img { position: relative; }
+    #pos2 { margin-left: 10px; }
+    .num { width: 25px; }
+    #num2 { width: 38px; }
+
+    #week{ text-align: center; padding-top: 30px; }
+  </style>
+  <script>
+    function toDou(n) {
+      if (n < 10) {
+        return '0' + n;
+      } else {
+        return '' + n;
+      }
+    }
+    function setWeek(week) {
+      switch (week) {
+        case 0:
+          week = 'seven';
+          break;
+        case 1:
+          week = 'one';
+          break;
+        case 2:
+          week = 'two';
+          break;
+        case 3:
+          week = 'three';
+          break;
+        case 4:
+          week = 'four';
+          break;
+        case 5:
+          week = 'five';
+          break;
+        case 6:
+          week = 'six';
+          break;
+        default:
+          week = 'seven';
+      }
+      return week;
+    }
+    window.onload=function () {
+      var yearDiv = document.getElementById('year');
+      var yearImg = yearDiv.getElementsByTagName('img');
+
+      var weekDiv = document.getElementById('week');
+      var weekImg = weekDiv.getElementsByTagName('img');
+
+      var timeDiv = document.getElementById('time');
+      var timeImg = timeDiv.getElementsByTagName('img');
+
+
+      function tick() {
+        var date = new Date();
+
+        var years = toDou(date.getFullYear()) + ':' + toDou(date.getMonth() + 1) + ':' + toDou(date.getDate());
+        var weeks = setWeek(date.getDay());
+        var times = toDou(date.getHours()) + ':' + toDou(date.getMinutes()) + ':' + toDou(date.getSeconds());
+
+        for (var i = 0; i < yearImg.length; i++) {
+          if (!isNaN(parseInt(yearImg[i].alt, 10))) {
+            yearImg[i].src='images/' + years[i] + '.png';
+          }
+        }
+
+        for (var i = 0; i < weekImg.length; i++) {
+          if (i == weekImg.length - 1) {
+            weekImg[i].src='images/' + weeks + '.png';
+          }
+        }
+
+        for (var i = 0; i < timeImg.length; i++) {
+          if (!isNaN(parseInt(timeImg[i].alt, 10))) {
+            timeImg[i].src='images/' + times[i] + '.png';
+          }
+        }
+      }
+
+      setInterval(tick, 1000);
+      tick();
+    }
+  </script>
+</head>
+<body id="clock">
+<h2><img src="images/title.png"/></h2>
+<div id="year">
+  <img class="num" src="images/0.png" alt="0"/>
+  <img class="num" src="images/0.png" alt="0"/>
+  <img class="num" src="images/0.png" alt="0"/>
+  <img class="num" src="images/0.png" alt="0"/>
+  <img src="images/year.png" alt="year"/>
+  <img class="num" src="images/0.png" alt="0" />
+  <img class="num" src="images/0.png" alt="0" />
+  <img src="images/month.png" alt="month" />
+  <img class="num" src="images/0.png" alt="0" />
+  <img class="num" src="images/0.png" alt="0" />
+  <img src="images/seven.png" alt="seven" />
+</div>
+
+<div id="week">
+  <img id="pos2" src="images/week.png" alt="week" />
+  <img id="num2" src="images/one.png" alt="one" />
+</div>
+
+<div id="time">
+
+  <img class="num" src="images/0.png" alt="0" />
+  <img class="num" src="images/0.png" alt="0" />
+  <img src="images/sign.png" alt="sign" />
+  <img class="num" src="images/0.png" alt="0" />
+  <img class="num" src="images/0.png" alt="0" />
+  <img src="images/sign.png" alt="sign" />
+  <img class="num" src="images/0.png" alt="0" />
+  <img class="num" src="images/0.png" alt="0" />
+</div>
+</body>
+</html>
